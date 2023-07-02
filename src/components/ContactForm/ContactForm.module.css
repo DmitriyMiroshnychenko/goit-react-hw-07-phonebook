@@ -1,0 +1,76 @@
+.Form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 500px;
+  border-radius: 5px;
+}
+
+.Label {
+  margin-bottom: 18px;
+}
+
+.Label:first-child {
+  margin-bottom: 10px;
+}
+
+.Input {
+  margin-top: 3px;
+  padding: 8px 0px;
+  width: 300px;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 1.4px;
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+  color: var(--input-text-color);
+  outline: none;
+  background: none;
+  border: none;
+  border-bottom: 1px solid var(--input-secondary-color);
+}
+
+.Input::placeholder {
+  color: var(--input-secondary-color);
+}
+
+.SubmitBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 30px;
+  width: 200px;
+  height: 40px;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 1.4px;
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+  color: #fff;
+  background-color: var(--theme-color);
+  box-shadow: 0px 1px 3px rgb(0 0 0 / 12%);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.SubmitBtn:hover {
+  background-color: var(--theme-color-hover);
+}
+
+.SubmitBtn:active {
+  background-color: #d9a814;
+}
+
+@media screen and (max-width: 480px) {
+  .Input {
+    width: 250px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .Form {
+    width: fit-content;
+  }
+}

@@ -1,7 +1,19 @@
-@import-normalize; /* bring in normalize.css styles */
+@import-normalize;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
+
+:root {
+  --container-bg-color: #383535;
+  --theme-color: #947c36;
+  --theme-color-hover: #1d943a;
+  --input-text-color: #ddd;
+  --input-secondary-color: #707062;
+}
 
 body {
+  color: #fff;
   margin: 0;
+  background: linear-gradient(to right, #383a86 0%, #29246e 100%);
+  padding: 20px;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -12,4 +24,27 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+li {
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
 }

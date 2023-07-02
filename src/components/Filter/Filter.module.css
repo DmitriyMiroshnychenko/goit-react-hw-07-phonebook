@@ -1,0 +1,33 @@
+.Label {
+  position: relative;
+  display: flex;
+  margin-bottom: 20px;
+  flex-direction: column;
+  font-weight: 500;
+}
+
+.Input {
+  margin-top: 3px;
+  padding: 8px 0;
+  width: 300px;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 1.4px;
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+  color: var(--input-text-color);
+  outline: none;
+  background: none;
+  border: none;
+  border-bottom: 1px solid var(--input-secondary-color);
+}
+
+.Input::placeholder {
+  color: var(--input-secondary-color);
+}
+
+@media screen and (max-width: 480px) {
+  .Input {
+    width: 250px;
+  }
+}
