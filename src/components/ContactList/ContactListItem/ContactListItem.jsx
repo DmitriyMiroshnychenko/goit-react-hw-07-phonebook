@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { useContacts } from 'hooks/useContacts';
 import { MdDelete, MdPerson, MdPhone } from 'react-icons/md';
@@ -6,6 +7,7 @@ import styles from './ContactListItem.module.css';
 
 export function ContactListItem({ id, name, number }) {
   const { deleteContact } = useContacts();
+  const [updatedNumber, setUpdatedNumber] = useState(number);
 
   async function handleDeleteContact(id, name) {
     try {
@@ -14,6 +16,10 @@ export function ContactListItem({ id, name, number }) {
     } catch (error) {
       console.log(error);
     }
+  }
+
+  function handleNumberChange(event) {
+    setUpdatedNumber(event.target.value);
   }
 
   return (
@@ -25,7 +31,11 @@ export function ContactListItem({ id, name, number }) {
         </span>{' '}
         <span className={styles.Number}>
           <MdPhone className={styles.Icon} />
-          {number}
+          <input
+            type="text"
+            value={updatedNumber}
+            onChange={handleNumberChange}
+          />
         </span>
       </span>
       <button
