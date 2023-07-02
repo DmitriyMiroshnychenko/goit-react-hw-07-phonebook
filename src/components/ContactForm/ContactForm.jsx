@@ -7,12 +7,11 @@ export function ContactForm() {
   const { contacts, addContact } = useContacts();
 
   const [name, setName] = useState('');
-  const [number, setNumber] = useState('');
-  const [numberError, setNumberError] = useState('');
+  const [phone, setPhone] = useState('');
 
   function resetState() {
     setName('');
-    setNumber('');
+    setPhone('');
   }
 
   function handleInputChange(event) {
@@ -22,14 +21,8 @@ export function ContactForm() {
       setName(value);
     }
 
-    if (name === 'number') {
-      const onlyDigits = /^\d*$/.test(value);
-      if (onlyDigits) {
-        setNumber(value);
-        setNumberError('');
-      } else {
-        setNumberError('Number should only contain digits.');
-      }
+    if (name === 'phone') {
+      setPhone(value);
     }
   }
 
@@ -37,7 +30,7 @@ export function ContactForm() {
     event.preventDefault();
     const newContact = {
       name,
-      number,
+      phone,
     };
 
     const alreadyInContacts = contacts.some(
@@ -76,19 +69,18 @@ export function ContactForm() {
       </label>
 
       <label className={styles.Label}>
-        <label className={styles.Label}>
-          <input
-            className={styles.Input}
-            type="tel"
-            name="number"
-            placeholder="number"
-            value={number}
-            autoComplete="off"
-            required
-            onChange={handleInputChange}
-          />
-          {numberError && <p className={styles.Error}>{numberError}</p>}
-        </label>
+        <input
+          className={styles.Input}
+          type="tel"
+          name="phone"
+          placeholder="number"
+          value={phone}
+          autoComplete="off"
+          pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
+          title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
+          required
+          onChange={handleInputChange}
+        />
       </label>
       <button type="submit" className={styles.SubmitBtn}>
         Add contact
