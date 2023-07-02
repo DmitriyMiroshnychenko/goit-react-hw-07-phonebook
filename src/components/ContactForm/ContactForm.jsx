@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { useContacts } from 'hooks/useContacts';
 import { toast } from 'react-toastify';
 import styles from './ContactForm.module.css';
@@ -15,14 +15,14 @@ export function ContactForm() {
   }
 
   function handleInputChange(event) {
-    const { name, value } = event.currentTarget;
+    const { name, value } = event.target;
 
     if (name === 'name') {
       setName(value);
     }
 
     if (name === 'phone') {
-      setPhone(value);
+      setPhone(value.replace(/\D/g, '')); // Remove non-digit characters
     }
   }
 
@@ -76,8 +76,8 @@ export function ContactForm() {
           placeholder="number"
           value={phone}
           autoComplete="off"
-          pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
-          title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
+          pattern="[0-9]*"
+          title="Phone number must be digits"
           required
           onChange={handleInputChange}
         />
